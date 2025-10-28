@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-dutch
+    hostname: 630acdf137ea
+    mac_address: 2e:63:48:58:a2:d7
+    restart: "no"
+    ports:
+      - "3306:3306"
+      - "33060:33060"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dutch
+      MYSQL_USER: dutch
+      MYSQL_PASSWORD: dutch
+      PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      GOSU_VERSION: "1.17"
+      MYSQL_MAJOR: innovation
+      MYSQL_VERSION: 9.3.0-1.el9
+      MYSQL_SHELL_VERSION: 9.3.0-1.el9
+    volumes:
+      - C:/DockerVolumes/20250604/Dutch:/var/lib/mysql
+    networks:
+      - bridge
+    working_dir: /
+
+networks:
+  bridge:
+    driver: bridge

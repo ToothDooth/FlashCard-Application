@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>User Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class=" row result-container mx-auto" style="max-width: 1600px;" th:align="justified">
+        <div th:class="${showSecondColumn} ? 'col-md-6' : 'col-12'">
+
+            <!--  add Quiz-->
+            <div th:replace="Quiz/quizFragments::quizForm"></div>
+
+        </div>
+        <div th:if="${#bools.isTrue(showResponse)}">
+            <div th:replace="Quiz/quizFragments::viewResponse"></div>
+        </div>
+    </div>
+</div>
+
+</body>

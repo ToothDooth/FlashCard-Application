@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>User Form</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!--    <h1 class="text-center text-primary mb-4">Sia Stocks</h1>-->
+    <div class=" row result-container mx-auto" style="max-width: 1600px;" th:align="justified">
+        <div th:class="col-md-6">
+
+            <!--  add Word-->
+            <div th:replace="Word/wordFragments::addWordForm"></div>
+
+            <!--  display Response-->
+            <div th:if="${showResponse != null}">
+                <div th:replace="Word/wordFragments::viewResponse"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
