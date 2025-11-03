@@ -32,4 +32,10 @@ public class WordController {
 
         return urlRedirectorService.redirector(referer, 3);
     }
+
+    @GetMapping("/close")
+        public String closeWordResponse(@RequestHeader(value = "Referer", required = false) String referer, Model model) {
+        wordSpaService.closeWordResponse(model);
+        return urlRedirectorService.redirector(referer, 3);
+        }
 }

@@ -43,7 +43,7 @@
 <!--        <div th:if="${showResponse != null}">-->
             <h1 class="text-center text-primary mb-4">View Dictionary</h1>
             <div class="card shadow-lg p-4 bg-light border-0 rounded">
-                <form method="GET" th:action="@{/word/}" th:object="${responseWord}">
+                <form method="GET" th:action="@{/word/close}" th:object="${responseWord}">
                     <h4 class="display-4 fw-bold text-center text-info">Dictionary Details</h4>
                     <div class="mb-3">
                         <p class="fs-5">
@@ -58,9 +58,9 @@
                             <span class="text-muted">English Explanation:</span>
                             <strong class="text-dark" th:text="*{meaning}"></strong>
                         </p>
-
-    <!--                    <div th:replace="Stock/stockfragments::displayStockList(stocks=${word.stockList})"></div>-->
+                        <div th:replace="Quiz/quizFragments::displaySentenceList(sentenceList=*{sentenceList})"></div>
                     </div>
+
 
                     </p>
 
@@ -70,7 +70,6 @@
                     </div>
                 </form>
             </div>
-<!--        </div>-->
     </div>
 
 </div>

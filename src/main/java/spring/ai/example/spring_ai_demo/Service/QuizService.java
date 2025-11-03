@@ -23,8 +23,7 @@ public class QuizService {
 
     @Autowired
     public QuizService(
-            WordRepository wordRepository,
-            WordService wordService
+            WordRepository wordRepository
     ) {
         this.wordRepository = wordRepository;
 

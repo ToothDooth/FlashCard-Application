@@ -23,6 +23,11 @@ public class WordSpaService {
         }
     }
 
+    public void closeWordResponse(Model model) {
+        responseWord = null;
+        loadWordSpa(model);
+    }
+
     private static void addBlankNewWordToModel(Model model) {
         model.addAttribute("word", new Word());
     }
@@ -37,6 +42,16 @@ public class WordSpaService {
 
     // Serves the word save request from the SPA.
     public void saveWord( Word word) {
-        responseWord = wordService.getWordResponse(word.getName());
+        if (onlyLatinLetters(word.getName())) {
+                responseWord = wordService.getWordResponse(word.getName());
+        }else  {
+
+            log.warn(word.getName() + " is not a valid dutch word.");
+
+        }
+    }
+
+    boolean onlyLatinLetters(String s) {
+        return s != null && s.matches("^[A-Za-z]+$");
     }
 }
